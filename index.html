@@ -2,20 +2,35 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Screen Breaker</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <div id="startWorkView">
-      <button id="startWork">Starte Arbeiten</button>
-    </div>
+    <div id="content">
+      <div id="startWorkView">
+        <button id="startWork" class="btn btn-primary">Starte Arbeiten</button>
+      </div>
 
-    <div id="startBreakView" style="display: none">
-      <button id="startBreak">Starte deine Pause</button>
-    </div>
-    
-    <div id="breakActiveView" style="display: none">
-      Mach noch <span id="leftBreak">0</span> Minuten Pause.
-      <button id="backToWork">Zurück von Pause</button>
+      <div id="startBreakView" style="display: none">
+        <button id="startBreak" class="btn btn-primary">Starte deine Pause</button>
+      </div>
+
+      <div id="breakActiveView" style="display: none">
+        <p>Mach noch <span id="leftBreak">0</span> Minuten Pause.</p>
+        <button id="backToWork" class="btn btn-primary">Zurück von Pause</button>
+      </div>
     </div>
   </body>
 
