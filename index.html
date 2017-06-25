@@ -5,11 +5,18 @@
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div id="startWorkView">
+      <button id="startWork">Starte Arbeiten</button>
+    </div>
+
+    <div id="startBreakView" style="display: none">
+      <button id="startBreak">Starte deine Pause</button>
+    </div>
+    
+    <div id="breakActiveView" style="display: none">
+      Mach noch <span id="leftBreak">0</span> Minuten Pause.
+      <button id="backToWork">Zurück von Pause</button>
+    </div>
   </body>
 
   <script>
