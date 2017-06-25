@@ -18,7 +18,7 @@ function createWindow () {
     mainWindow = null
   })
 
-  tray = new Tray('eyedropper.ico')
+  tray = new Tray(path.join(__dirname, 'eyedropper.ico'))
   tray.setToolTip('Screen Break')
   tray.on('click', () => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
