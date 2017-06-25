@@ -6,6 +6,8 @@ Reminds you to take a break from staring onto your screen
 
 ```npm install```
 
+AND
+
 ```node_modules/.bin/electron .```
 
 OR
