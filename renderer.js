@@ -12,16 +12,18 @@ const leftBreakEl = document.querySelector('#leftBreak')
 
 const workLength = 50 * 60 * 1000;
 const breakLength = 5 * 60 * 1000;
+const notificationIntervalTime = 60 * 1000;
 const updateBreakTimerLength = 1000;
 
 let updateBreakInterval;
+let notificationInterval;
 let breakTimeLeft = breakLength;
 
 function startWork() {
   clearInterval(updateBreakInterval)
   breakTimeLeft = breakLength
   setLeftBreakEl()
-  setTimeout(showBreakNotification, workLength)
+  setTimeout(startNotificationTimer, workLength)
   currentWindow.hide()
   startWorkViewEl.style = 'display:none';
   startBreakViewEl.style = '';
@@ -29,6 +31,7 @@ function startWork() {
 }
 
 function startBreak() {
+  clearInterval(notificationInterval)
   updateBreakInterval = setInterval(updateBreakTimer, updateBreakTimerLength)
   startWorkViewEl.style = 'display:none';
   startBreakViewEl.style = 'display:none';
@@ -48,9 +51,13 @@ function setLeftBreakEl() {
   leftBreakEl.innerHTML = `${breakTimeLeft < 0 ? '-' : ''}${minutes}:${seconds}`
 }
 
+function startNotificationTimer() {
+  notificationInterval = setInterval(showBreakNotification, notificationIntervalTime)
+}
+
 function showBreakNotification() {
   let myNotification = new Notification('Pause', {
-    body: 'Hey du solltest unbedingt eine Pause machen'
+    body: 'Hey du solltest eine Pause machen'
   })
 
   myNotification.onclick = () => {
